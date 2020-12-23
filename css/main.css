@@ -4,8 +4,10 @@ h3 {
 
 /* TASK 3  */
 .gallery {
+  list-style: none;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 /* TASK 6 */
