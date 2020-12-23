@@ -21,3 +21,20 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryRef = document.querySelector('#gallery');
+// const imgEl = document.createElement('img');
+// imgEl.src = images.map(image => image.url);
+// imgEl.alt = images.map(image => image.alt);
+// imgEl.classList.add('gallery_img');
+// gallery.appendChild(imgEl);
+
+const imagesRef = images
+  .map(
+    image =>
+      // const { url, alt } = image;
+      `<li> <img src="${image.url}" alt="${image.alt}" class="gallery_img"></li >`,
+  )
+  .join('');
+
+galleryRef.insertAdjacentHTML('afterbegin', imagesRef);
