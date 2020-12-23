@@ -16,9 +16,6 @@ function nameInput(event) {
   //   if (event.target.value !== spanRef.textContent) {
   //     spanRef.textContent = event.target.value;
   //   }
-  //   return (event.target.value = ''
-  //     ? spanRef
-  //     : (spanRef.textContent = event.target.value));
 
   return event.target.value === ''
     ? (spanRef.textContent = 'незнакомец')
