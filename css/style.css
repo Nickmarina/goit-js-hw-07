@@ -3,7 +3,7 @@ h3 {
 }
 
 /* TASK 3  */
-.gallery_img {
-  width: 300px;
-  border-radius: 20%;
+.gallery {
+  display: flex;
+  justify-content: space-around;
 }

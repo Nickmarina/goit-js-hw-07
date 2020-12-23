@@ -23,6 +23,7 @@ const images = [
 ];
 
 const galleryRef = document.querySelector('#gallery');
+galleryRef.classList.add('gallery');
 // const imgEl = document.createElement('img');
 // imgEl.src = images.map(image => image.url);
 // imgEl.alt = images.map(image => image.alt);
@@ -33,7 +34,7 @@ const imagesRef = images
   .map(
     image =>
       // const { url, alt } = image;
-      `<li> <img src="${image.url}" alt="${image.alt}" class="gallery_img"></li >`,
+      `<li> <img src="${image.url}" alt="${image.alt}" width="320"></li >`,
   )
   .join('');
 
