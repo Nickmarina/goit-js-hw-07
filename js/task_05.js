@@ -2,22 +2,18 @@
 // input(событие input), подставляет его текущее значение в span#name
 // - output.Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
 
-{
-  /* <input type="text" placeholder="Ваше имя?" id="name-input" />
+// {
+/* <input type="text" placeholder="Ваше имя?" id="name-input" />
     <h1>Привет, <span id="name-output">незнакомец</span>!</h1> */
-}
+// }
 
 const inputRef = document.querySelector('#name-input');
-const spanRef = document.querySelector('#name-output');
+const outputRef = document.querySelector('#name-output');
 
-inputRef.addEventListener('input', nameInput);
+inputRef.addEventListener('input', nameFn);
 
-function nameInput(event) {
-  //   if (event.target.value !== spanRef.textContent) {
-  //     spanRef.textContent = event.target.value;
-  //   }
-
+function nameFn(event) {
   return event.target.value === ''
-    ? (spanRef.textContent = 'незнакомец')
-    : (spanRef.textContent = event.target.value);
+    ? (outputRef.textContent = 'незнакомец')
+    : (outputRef.textContent = event.target.value);
 }

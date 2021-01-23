@@ -4,39 +4,34 @@
 // Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
 // Для добавления стилей, используй CSS - классы valid и invalid.
 
-//     #validation - input {
-//     border: 3px solid #bdbdbd;
-// }
+const validatorRef = document.querySelector('#validation-input');
 
-// #validation - input.valid {
-//     border - color: #4caf50;
-// }
+validatorRef.classList.add('input');
+validatorRef.addEventListener('blur', verificationFn);
 
-// #validation - input.invalid {
-//     border - color: #f44336;
-// }
-
-{
-  /* <input
-    type="text"
-    id="validation-input"
-    data-length="6"
-    placeholder="Введи 6 символов"
-/>
-    <br /> */
+function verificationFn(event) {
+  if (event.target.value.length === 0) {
+    blankInput();
+  } else if (
+    event.target.value.length === Number(event.target.dataset.length)
+  ) {
+    validInput();
+  } else {
+    invalidInput();
+  }
 }
 
-const validatorRef = document.querySelector('#validation-input');
-validatorRef.classList.add('input');
+function blankInput() {
+  validatorRef.classList.remove('valid');
+  validatorRef.classList.remove('invalid');
+}
 
-validatorRef.addEventListener('blur', verification);
+function validInput() {
+  validatorRef.classList.remove('invalid');
+  validatorRef.classList.add('valid');
+}
 
-function verification(event) {
-  if (event.target.value.length === Number(event.target.dataset.length)) {
-    validatorRef.classList.remove('invalid');
-    validatorRef.classList.add('valid');
-  } else {
-    validatorRef.classList.remove('valid');
-    validatorRef.classList.add('invalid');
-  }
+function invalidInput() {
+  validatorRef.classList.remove('valid');
+  validatorRef.classList.add('invalid');
 }

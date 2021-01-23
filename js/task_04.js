@@ -11,18 +11,18 @@
 
 const decrementBtn = document.querySelector('[data-action="decrement"]');
 const incrementBtn = document.querySelector('[data-action="increment"]');
-const spanRef = document.querySelector('#value');
-let counterValue = 0;
+const valueRef = document.querySelector('#value');
+let counterRef = 0;
 
-decrementBtn.addEventListener('click', decrement);
-incrementBtn.addEventListener('click', increment);
+decrementBtn.addEventListener('click', decrementFn);
+incrementBtn.addEventListener('click', incrementFn);
 
-function decrement() {
-  counterValue -= 1;
-  return (spanRef.textContent = counterValue);
+function decrementFn() {
+  counterRef -= 1;
+  return (valueRef.textContent = counterRef);
 }
 
-function increment() {
-  counterValue += 1;
-  return (spanRef.textContent = counterValue);
+function incrementFn() {
+  counterRef += 1;
+  return (valueRef.textContent = counterRef);
 }
