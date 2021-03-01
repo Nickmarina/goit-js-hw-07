@@ -23,10 +23,12 @@ const images = [
 ];
 
 const galleryRef = document.querySelector('#gallery');
-const imagesRef = images.map(
-  image =>
-    `<li> <img src="${image.url}" alt ="${image.alt}" width = "320"</li>`,
-);
+const imagesRef = images
+  .map(
+    image =>
+      `<li> <img src="${image.url}" alt ="${image.alt}" width = "320"</li>`,
+  )
+  .join('');
 
 galleryRef.classList.add('gallery');
 galleryRef.insertAdjacentHTML('beforeend', imagesRef);

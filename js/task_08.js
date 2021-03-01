@@ -18,16 +18,13 @@ const inputRef = document.querySelector('input[type="number"]');
 const renderBtnRef = document.querySelector('[data-action="render"]');
 const destroyBtnRef = document.querySelector('[data-action="destroy"]');
 const boxesRef = document.querySelector('#boxes');
-let amount = 0;
 
 renderBtnRef.addEventListener('click', createBoxes);
 destroyBtnRef.addEventListener('click', destroyBoxes);
 
-function createBoxes(amount) {
-  amount = inputRef.value;
-  console.log(amount);
+function createBoxes() {
   let arrOfBoxes = [];
-  for (let i = 1; i <= amount; i += 1) {
+  for (let i = 1; i <= Number(inputRef.value); i += 1) {
     const box = document.createElement('div');
     box.classList.add('box');
     box.style.width = `${20 + 10 * i}px`;
@@ -37,17 +34,14 @@ function createBoxes(amount) {
     arrOfBoxes.push(box);
   }
   boxesRef.append(...arrOfBoxes);
+
+  inputRef.value = '';
+  renderBtnRef.removeEventListener('click', createBoxes);
 }
 
 function destroyBoxes() {
-  inputRef.value = 0;
-  renderBtnRef.removeEventListener('click', createBoxes);
-  const boxForRemoveRef = document.querySelectorAll('.box');
-  let arrForDeleting = [];
-  arrForDeleting.push(...boxForRemoveRef);
-  for (const element of arrForDeleting) {
-    element.remove();
-  }
+  boxesRef.innerHTML = '';
+  inputRef.value = '';
   renderBtnRef.addEventListener('click', createBoxes);
 }
 
